@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сакральные места — Казахстан | UrbanGuide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #ffffff;
+  --bg2:       #f7faf8;
+  --bg3:       #eef6f1;
+  --green:     #1a7a4a;
+  --green-lt:  #27a762;
+  --green-dim: #e8f5ee;
+  --green-mid: #d0eddc;
+  --gold:      #b8873a;
+  --gold-dim:  #fdf6e8;
+  --gold-mid:  #f5dfa8;
+  --text:      #1a2420;
+  --muted:     #6b7f75;
+  --hint:      #9db8ac;
+  --border:    #c8ddd3;
+  --mono:      'Space Mono', monospace;
+  --serif:     'Playfair Display', serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);min-height:100vh;overflow-x:hidden}
+
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(26,122,74,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(26,122,74,0.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;top:16px;left:16px;width:24px;height:24px;border-top:1px solid var(--green);border-left:1px solid var(--green);z-index:10;pointer-events:none}
+.corner-br{position:fixed;bottom:16px;right:16px;width:24px;height:24px;border-bottom:1px solid var(--green);border-right:1px solid var(--green);z-index:10;pointer-events:none}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;padding:14px 40px;border-bottom:1.5px solid var(--border);background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:17px;font-weight:700;color:var(--text);text-decoration:none}
+.nav-logo strong{color:var(--green)}
+.nav-logo-icon{width:30px;height:30px;background:var(--green);border-radius:4px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon svg{width:14px;height:14px;color:#fff}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-back{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1.5px solid var(--border);padding:7px 16px;border-radius:4px;transition:all 0.2s}
+.nav-back:hover{border-color:var(--green);color:var(--green);background:var(--green-dim)}
+.nav-count{font-size:10px;letter-spacing:0.14em;color:var(--muted);border:1px solid var(--border);padding:5px 12px;border-radius:2px}
+
+/* HERO */
+.hero{padding:64px 40px 52px;position:relative;z-index:1;max-width:1200px;margin:0 auto}
+.hero-label{font-size:10px;letter-spacing:0.2em;color:var(--green);font-weight:700;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,5.5vw,80px);font-weight:700;line-height:1.05;letter-spacing:-0.02em;margin-bottom:18px;color:var(--text)}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero-sub{font-size:12px;color:var(--muted);max-width:520px;line-height:2;letter-spacing:0.03em;margin-bottom:0}
+
+/* STATS */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1.5px solid var(--border);border-radius:4px;overflow:hidden;margin:40px 40px 0;max-width:1120px}
+.stat-item{background:var(--bg2);padding:22px 18px;text-align:center;position:relative}
+.stat-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.stat-item:hover::before{transform:scaleX(1)}
+.stat-num{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--text);line-height:1;margin-bottom:5px}
+.stat-num span{color:var(--green)}
+.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.14em}
+
+/* FILTER */
+.filter-bar{position:sticky;top:57px;z-index:90;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1.5px solid var(--border)}
+.filter-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.filter-inner::-webkit-scrollbar{display:none}
+.filter-btn{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:13px 16px;cursor:pointer;transition:color 0.2s,border-color 0.2s;white-space:nowrap;flex-shrink:0}
+.filter-btn:hover{color:var(--text)}
+.filter-btn.active{color:var(--green);border-bottom-color:var(--green)}
+
+/* SEARCH */
+.search-section{max-width:1200px;margin:0 auto;padding:36px 40px 0}
+.search-wrap{position:relative}
+.search-input{width:100%;background:var(--bg2);border:1.5px solid var(--border);border-radius:4px;padding:12px 16px 12px 44px;color:var(--text);font-family:var(--mono);font-size:12px;outline:none;transition:border-color 0.2s;letter-spacing:0.03em}
+.search-input::placeholder{color:var(--hint)}
+.search-input:focus{border-color:var(--green)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--hint)}
+.search-icon svg{width:16px;height:16px}
+
+/* MAIN */
+main{max-width:1200px;margin:0 auto;padding:36px 40px 80px;position:relative;z-index:1}
+
+/* REGION */
+.region{margin-bottom:64px}
+.region-header{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:1.5px solid var(--border)}
+.region-name{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--text)}
+.region-sub{font-size:10px;letter-spacing:0.14em;color:var(--hint);text-transform:uppercase}
+.region-count{margin-left:auto;font-size:10px;letter-spacing:0.1em;color:var(--green);border:1px solid var(--green-mid);padding:3px 10px;border-radius:2px;background:var(--green-dim)}
+
+/* GRID */
+.gems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1px;background:var(--border);border:1.5px solid var(--border);border-radius:4px;overflow:hidden}
+
+/* CARD */
+.gem-card{background:var(--bg);padding:24px 20px;transition:background 0.2s;position:relative;cursor:pointer}
+.gem-card:hover{background:var(--bg2)}
+.gem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.gem-card:hover::before,.gem-card.expanded::before{transform:scaleX(1)}
+.gem-card--sacred{border-left:2.5px solid var(--gold-mid)}
+.gem-card--sacred::before{background:var(--gold)}
+
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
+.card-type{font-size:9px;letter-spacing:0.16em;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+.type-sacred{background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-mid)}
+.type-historical{background:var(--green-dim);color:var(--green);border:1px solid var(--green-mid)}
+.type-natural{background:#e8f0fb;color:#3a6abf;border:1px solid #c0d4f5}
+.type-architectural{background:#f5eafb;color:#8a3abf;border:1px solid #ddc0f5}
+.type-petroglyphs{background:#fdf2e8;color:#b86020;border:1px solid #f5d4a8}
+.card-era{font-size:9px;color:var(--hint);letter-spacing:0.08em}
+
+.card-name{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:5px}
+.card-name-kz{font-size:11px;color:var(--green);letter-spacing:0.04em;margin-bottom:10px;font-style:italic}
+.card-desc{font-size:11px;color:var(--muted);line-height:1.85;letter-spacing:0.02em;margin-bottom:14px}
+
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border)}
+.card-location{font-size:10px;color:var(--hint);letter-spacing:0.06em;display:flex;align-items:center;gap:5px}
+.card-location svg{width:11px;height:11px;flex-shrink:0}
+.tap-hint{font-size:9px;color:var(--hint);letter-spacing:0.06em;border:1px solid var(--border);padding:2px 8px;border-radius:2px;transition:all 0.2s}
+.gem-card:hover .tap-hint,.gem-card.expanded .tap-hint{color:var(--green);border-color:var(--green-mid);background:var(--green-dim)}
+
+/* ETIQUETTE */
+.etiq-panel{display:none;margin-top:14px;background:var(--green-dim);border:1px solid var(--green-mid);border-radius:2px;padding:14px}
+.gem-card.expanded .etiq-panel{display:block}
+.etiq-title{font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.etiq-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.etiq-list li{font-size:11px;color:var(--muted);line-height:1.65;padding-left:14px;position:relative;letter-spacing:0.02em}
+.etiq-list li::before{content:'→';position:absolute;left:0;color:var(--green);font-size:10px}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:60px 20px;color:var(--hint);font-size:12px;letter-spacing:0.06em;display:none}
+.empty-state.visible{display:block}
+
+/* FOOTER */
+footer{border-top:1.5px solid var(--border);padding:24px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;z-index:1;background:var(--bg)}
+.footer-logo{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--text)}
+.footer-logo strong{color:var(--green)}
+.footer-copy{font-size:10px;color:var(--hint)}
+.footer-back{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.08em;color:var(--muted);text-decoration:none;border:1.5px solid var(--border);padding:8px 18px;border-radius:4px;transition:all 0.2s;text-transform:uppercase}
+.footer-back:hover{border-color:var(--green);color:var(--green);background:var(--green-dim)}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--green-mid);border-radius:4px}
+
+@media(max-width:640px){
+  nav,.hero,main,footer,.search-section{padding-left:20px;padding-right:20px}
+  .filter-inner{padding:0 20px}
+  .stats-bar{grid-template-columns:repeat(2,1fr);margin-left:20px;margin-right:20px}
+  .gems-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="corner-br"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+    </div>
+    Urban<strong>Guide</strong>
+  </a>
+  <div class="nav-right">
+    <div class="nav-count" id="total-count">// Загрузка...</div>
+    <a class="nav-back" href="index.html">← На главную</a>
+  </div>
+</nav>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num" id="s-total">0<span>+</span></div><div class="stat-label">Уникальных мест</div></div>
+  <div class="stat-item"><div class="stat-num">14<span></span></div><div class="stat-label">Регионов</div></div>
+  <div class="stat-item"><div class="stat-num">5000<span>+</span></div><div class="stat-label">Лет истории</div></div>
+  <div class="stat-item"><div class="stat-num">3<span></span></div><div class="stat-label">Объекта ЮНЕСКО</div></div>
+</div>
+
+<div class="hero">
+  <div class="hero-label">// Сакральный и исторический атлас</div>
+  <h1>Скрытые сокровища<br><em>Казахстана.</em></h1>
+  <p class="hero-sub">Древние мечети, сакральные курганы, петроглифы бронзового века и знаковые исторические здания — полный атлас культурных и священных мест Казахстана. Нажмите на карточку, чтобы увидеть правила этикета.</p>
+</div>
+
+<div class="filter-bar">
+  <div class="filter-inner" id="filter-bar">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="sacred">Сакральные</button>
+    <button class="filter-btn" data-filter="historical">Исторические</button>
+    <button class="filter-btn" data-filter="petroglyphs">Петроглифы</button>
+    <button class="filter-btn" data-filter="architectural">Архитектура</button>
+    <button class="filter-btn" data-filter="natural">Природные</button>
+  </div>
+</div>
+
+<div class="search-section">
+  <div class="search-wrap">
+    <div class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    <input class="search-input" id="search-input" type="text" placeholder="Поиск по названию, региону или типу..." autocomplete="off">
+  </div>
+</div>
+
+<main id="main-content">
+  <div id="gems-container"></div>
+  <div class="empty-state" id="empty-state">По вашему запросу ничего не найдено.</div>
+</main>
+
+<footer>
+  <div class="footer-logo">Urban<strong>Guide</strong> — Атлас Казахстана</div>
+  <div class="footer-copy">© 2026 UrbanGuide. Только в информационных целях.</div>
+  <a class="footer-back" href="index.html">← На главную</a>
+</footer>
+
+<script>
+const GEMS = [
+  {
+    region: "Алматы и окрестности",
+    regionSub: "Алматы және маңайы",
+    items: [
+      {
+        name: "Вознесенский собор (Зеньков)",
+        nameKz: "Зеньков соборы",
+        type: "architectural",
+        typeLabel: "Архитектура",
+        era: "1904 год",
+        location: "Парк Панфилова, Алматы",
+        desc: "Одно из самых высоких деревянных сооружений в мире, построенное полностью без единого гвоздя. Собор пережил землетрясение 1911 года, разрушившее большую часть Верного. Эталон русского романтического деревянного зодчества в Центральной Азии.",
+        etiquette: [
+          "Скромная одежда обязательна — плечи и колени должны быть прикрыты",
+          "Женщинам следует покрыть голову платком внутри",
+          "Съёмка снаружи разрешена; внутри — спрашивайте разрешение",
+          "Соблюдайте тишину во время богослужений",
+          "Не входите во время активной литургии без приглашения"
+        ]
+      },
+      {
+        name: "Центральная мечеть Алматы",
+        nameKz: "Алматы орталық мешіті",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "1999 год",
+        location: "ул. Масанчи, Алматы",
+        desc: "Крупнейшая мечеть Казахстана, построенная с помощью турецких архитекторов. Четыре минарета высотой 47 метров. Вмещает 7 000 молящихся и занимает особое место в духовной жизни казахстанских мусульман.",
+        etiquette: [
+          "Снимайте обувь перед входом — используйте специальные стеллажи",
+          "Женщины обязаны носить хиджаб и одежду, закрывающую всё тело",
+          "Мужчины должны быть в длинных брюках; шорты не допускаются",
+          "Немусульмане могут войти вне времени намаза — уточните у прихожанина",
+          "Пять ежедневных намазов: избегайте визитов в эти промежутки",
+          "Фотосъёмка внутри без официального разрешения запрещена"
+        ]
+      },
+      {
+        name: "Петроглифы Тамгалы",
+        nameKz: "Тамғалы петроглифтері",
+        type: "petroglyphs",
+        typeLabel: "Петроглифы",
+        era: "II тысячелетие до н. э.",
+        location: "170 км к СЗ от Алматы",
+        desc: "Объект Всемирного наследия ЮНЕСКО. Более 5 000 петроглифов в 48 археологических комплексах сакрального ущелья. Солнцеголовые божества бронзового века, ритуальные сцены и зооморфные образы, охватывающие 3 000 лет истории — важнейший памятник наскального искусства Центральной Азии.",
+        etiquette: [
+          "Не прикасайтесь к рисункам — жир с кожи ускоряет разрушение камня",
+          "Держитесь обозначенных троп — хождение вне дорожек повреждает памятник",
+          "Съёмка разрешена; штатив требует разрешения у смотрителей",
+          "Ущелье считается священным местом — ведите себя с почтением",
+          "Нанимайте только официальных гидов у входа — неофициальные здесь распространены",
+          "Запрещено есть и пить вблизи петроглифов"
+        ]
+      },
+      {
+        name: "Иссыкский курган (Золотой человек)",
+        nameKz: "Есік қорғаны",
+        type: "historical",
+        typeLabel: "Историческое",
+        era: "V век до н. э.",
+        location: "Иссык, Алматинская область",
+        desc: "Погребальный курган сакского воина-жреца, где в 1969 году был найден легендарный Золотой человек. Воин был захоронен в костюме из 4 000 золотых украшений. Оригинал хранится в Национальном музее в Астане, однако сам курган — символ казахской национальной идентичности.",
+        etiquette: [
+          "Курган — погребальное место, относитесь к нему как к священной земле",
+          "Не взбирайтесь на насыпь",
+          "Громкий шум и музыка неуместны",
+          "Рядом есть музей с репликами Золотого человека — настоятельно рекомендуется"
+        ]
+      },
+      {
+        name: "Петроглифы Каскелена",
+        nameKz: "Қаскелен жартастары",
+        type: "petroglyphs",
+        typeLabel: "Петроглифы",
+        era: "Бронзовый век",
+        location: "Каскеленское ущелье, Алматинская обл.",
+        desc: "Малоизвестная, но впечатляющая коллекция наскальных рисунков в Каскеленском ущелье: архары, охотники и небесные символы. Значительно меньше туристов, чем в Тамгалы — более камерный археологический опыт.",
+        etiquette: [
+          "Официального входного билета нет — не оставляйте мусора",
+          "Не прикасайтесь к рисункам",
+          "Никакой инфраструктуры — берите воду и карту с собой"
+        ]
+      }
+    ]
+  },
+  {
+    region: "Южный Казахстан",
+    regionSub: "Оңтүстік Қазақстан",
+    items: [
+      {
+        name: "Мавзолей Ходжа Ахмед Яссауи",
+        nameKz: "Қожа Ахмет Йасауи кесенесі",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "XIV век (эпоха Тимура)",
+        location: "Туркестан",
+        desc: "Единственный объект Всемирного наследия ЮНЕСКО в Казахстане и главная исламская святыня страны. Воздвигнут Тимуром (Тамерланом) в 1389 году в честь суфийского поэта Ходжи Ахмеда Яссауи. Крупнейшее средневековое здание Центральной Азии. По местному преданию, три паломничества сюда равны одному Хаджу.",
+        etiquette: [
+          "Скромная одежда строго обязательна — полное прикрытие для всех посетителей",
+          "Женщинам необходимо покрыть голову и носить длинную одежду",
+          "Снимайте обувь у входа",
+          "Громко разговаривать или смеяться в главном зале — неуважение",
+          "Не прикасайтесь к огромному бронзовому казану (Тайказан)",
+          "Фотосъёмка внутри — платный билет у кассы",
+          "Место принимает настоящих паломников — уступайте им дорогу"
+        ]
+      },
+      {
+        name: "Древний город Отрар",
+        nameKz: "Отырар қаласының орны",
+        type: "historical",
+        typeLabel: "Историческое",
+        era: "I век н. э. — XVIII век",
+        location: "Туркестанская обл., Отрарский р-н",
+        desc: "Руины средневекового города, с которого началось монгольское нашествие (1218) — здесь правитель уничтожил торговый караван Чингисхана. Также место рождения Аль-Фараби, великого исламского философа. Огромный тепе (телль) из слоёв цивилизаций.",
+        etiquette: [
+          "Авторизованные археологические зоны чётко обозначены — соблюдайте границы",
+          "Запрещено уносить любые фрагменты, черепки или камни",
+          "Объект частично раскопан — осторожно у открытых траншей",
+          "Местные гиды дают контекст, недоступный из табличек — наймите одного"
+        ]
+      },
+      {
+        name: "Мавзолей Арыстан-Баба",
+        nameKz: "Арыстан-Баб кесенесі",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "XII век",
+        location: "Близ Отрара, Туркестанская обл.",
+        desc: "Усыпальница Арыстан-Баба — духовного наставника Ходжи Ахмеда Яссауи. Паломники посещают это место перед тем, как направиться в Туркестан: по преданию, Арыстан-Баб хранит ключ от гробницы Яссауи. Живое паломническое место.",
+        etiquette: [
+          "Активное место паломничества — будьте предельно уважительны",
+          "Женщины должны быть полностью одеты; мужчины — снять головные уборы и надеть длинные брюки",
+          "Не фотографируйте паломников без разрешения — многие приходят в личном горе",
+          "Разрешается привязать белую ткань (туман) к ограде — как делают местные",
+          "Не заходите в закрытые внутренние помещения"
+        ]
+      },
+      {
+        name: "Крепость Сауран",
+        nameKz: "Сауран қаласының орны",
+        type: "historical",
+        typeLabel: "Историческое",
+        era: "VII–XVIII вв.",
+        location: "40 км к западу от Туркестана",
+        desc: "Величественные руины средневекового укреплённого города — некогда столицы Белой Орды и ключевого торгового форпоста на Шёлковом пути. Внушительные стены из сырцового кирпича видны за километры. Пустынное и захватывающее место — без единого туриста.",
+        etiquette: [
+          "Стены хрупкие — не взбирайтесь на них",
+          "Часть объекта отреставрирована — соблюдайте реставрационные маркеры",
+          "Никаких удобств — берите воду и еду с собой"
+        ]
+      },
+      {
+        name: "Ески Шымкент (Старый Шымкент)",
+        nameKz: "Ескі Шымкент",
+        type: "historical",
+        typeLabel: "Историческое",
+        era: "XII век",
+        location: "Шымкент",
+        desc: "Исторический центр одного из старейших постоянно населённых городов Центральной Азии. Древняя цитадель стоит на доисторическом холме. Старый базар и квартальные мечети сохраняют подлинную атмосферу Шёлкового пути вдали от туристических маршрутов.",
+        etiquette: [
+          "Торг на базаре приветствуется — но без агрессии",
+          "Спрашивайте разрешение перед съёмкой жителей и торговцев",
+          "Квартальные мечети — для молящихся; наблюдайте снаружи, если не приглашены"
+        ]
+      }
+    ]
+  },
+  {
+    region: "Мангыстау",
+    regionSub: "Маңғыстау",
+    items: [
+      {
+        name: "Подземная мечеть Шакпак-Ата",
+        nameKz: "Шақпақ-Ата жерасты мешіті",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "IX–XIV вв.",
+        location: "Полуостров Тупкараган, Мангыстау",
+        desc: "Пещерная мечеть, полностью вырубленная в меловой скале на уступе обрыва над Каспийским морем. Четырёхкамерный комплекс с древними арабскими надписями, резными михрабами и каменными надгробиями. Одно из самых завораживающих сакральных пространств Центральной Азии.",
+        etiquette: [
+          "Снимайте обувь перед входом в вырубленные залы",
+          "Женщинам необходимо покрыть голову и одеться скромно",
+          "Говорите тихо — эхо разносится по всем камерам",
+          "Тропа по обрыву крутая и без ограждений — будьте предельно осторожны",
+          "Не трогайте надписи и декоративные элементы"
+        ]
+      },
+      {
+        name: "Подземная мечеть Бекет-Ата",
+        nameKz: "Бекет-Ата жерасты мешіті",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "XVIII век",
+        location: "Ущелье Оглангты, Мангыстау",
+        desc: "Главное паломническое место современного Казахстана, собственноручно вырубленное суфийским святым Бекет-Ата. Расположено в отдалённом ущелье, добраться можно только пешком — 3 км. Паломники съезжаются со всего Казахстана и Центральной Азии.",
+        etiquette: [
+          "Святейшее действующее паломническое место Казахстана — относитесь соответственно",
+          "Полная скромная одежда обязательна для всех посетителей",
+          "Встаньте в очередь — не обгоняйте паломников",
+          "Фотосъёмка внутри мечети строго запрещена",
+          "Возьмите еду для совместной трапезы (дастархан) — это часть паломнической традиции",
+          "Не снимайте молящихся или скорбящих",
+          "Пешая дорога от парковки обязательна — проезд на машине закрыт"
+        ]
+      },
+      {
+        name: "Долина замков (Айрактинские скалы)",
+        nameKz: "Айрақты жартастары",
+        type: "natural",
+        typeLabel: "Природное",
+        era: "Юрский / меловой период",
+        location: "Плато Устюрт, Мангыстау",
+        desc: "Потусторонний пейзаж из белых и охровых меловых образований — башни, арки, грибы — на плато Устюрт. Местные называют их «Долиной замков». Один из самых визуально поразительных ландшафтов Центральной Азии — настоящий Марс на Земле.",
+        etiquette: [
+          "Плато — дикая природа без инфраструктуры",
+          "Необходимы надёжный внедорожник и GPS",
+          "Не съезжайте с существующих колей — тонкий поверхностный слой легко повреждается",
+          "Берите воду минимум на 2 дополнительных дня на случай поломки"
+        ]
+      },
+      {
+        name: "Некрополь Кенти-Баба",
+        nameKz: "Кенті-Баба некрополі",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "Средневековье",
+        location: "Полуостров Мангыстау",
+        desc: "Старинный казахский некрополь удивительного разнообразия: украшенные саркофаги, каменные стелы с исламской геометрической резьбой и доисламские тамга-символы на одном камне. Наглядный пример многослойной духовной истории казахов.",
+        etiquette: [
+          "Погост — идите с тихим уважением",
+          "Не садитесь и не облокачивайтесь на надгробия",
+          "Съёмка разрешена, но с достоинством"
+        ]
+      }
+    ]
+  },
+  {
+    region: "Восточный Казахстан",
+    regionSub: "Шығыс Қазақстан",
+    items: [
+      {
+        name: "Царские курганы Берел",
+        nameKz: "Берел қорғандары",
+        type: "historical",
+        typeLabel: "Историческое",
+        era: "V–III вв. до н. э.",
+        location: "Долина Бухтармы, ВКО",
+        desc: "Царский некрополь пазырыкской культуры — скифские вожди-жрецы, захороненные с принесёнными в жертву конями в золочёных церемониальных масках. Вечная мерзлота сохранила органику: ткани, деревянную резьбу и татуированную кожу. Находки — в музее Усть-Каменогорска.",
+        etiquette: [
+          "Курганы — погребальные места, соблюдайте уважительную тишину",
+          "Не ходите по насыпям",
+          "Объект находится в Катон-Карагайском нацпарке — нужен пропуск"
+        ]
+      },
+      {
+        name: "Петроглифы Калбатау",
+        nameKz: "Қалбатау петроглифтері",
+        type: "petroglyphs",
+        typeLabel: "Петроглифы",
+        era: "Бронзовый — железный век",
+        location: "Горы Калбатау, ВКО",
+        desc: "Тысячи наскальных рисунков в горах Калбатау: олени, лоси, снежные барсы, всадники и шаманские фигуры. Менее известны, чем Тамгалы, но столь же древние — в суровом горном обрамлении.",
+        etiquette: [
+          "Не прикасайтесь к рисункам — меловая обводка и трассировка строго запрещены",
+          "Горная погода меняется быстро — берите непромокаемую одежду",
+          "В районе водятся волки и медведи — ходите группой"
+        ]
+      },
+      {
+        name: "Озеро Маркаколь",
+        nameKz: "Марқакөл көлі",
+        type: "natural",
+        typeLabel: "Природное",
+        era: "Природный объект",
+        location: "Южный Алтай, ВКО",
+        desc: "Огромное чистейшее альпийское озеро на высоте 1450 м в отдалённом уголке Алтая, окружённое тайгой и пиками. Статус строгого природного заповедника сохранил его почти нетронутым. В водах обитает эндемичный ленок. Одно из красивейших диких мест Казахстана.",
+        etiquette: [
+          "Въезд требует пропуска Маркакольского заповедника",
+          "Рыбалка запрещена, кроме специальных зон с лицензией",
+          "Стоянка только в отведённых местах",
+          "Запрещено срывать растения и беспокоить животных"
+        ]
+      }
+    ]
+  },
+  {
+    region: "Центральный Казахстан",
+    regionSub: "Орталық Қазақстан",
+    items: [
+      {
+        name: "Улытау — священная гора",
+        nameKz: "Ұлытау",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "Разные эпохи",
+        location: "Улытауский р-н, Карагандинская обл.",
+        desc: "Духовное сердце Казахстана — «Великая гора», где венчали казахских ханов и собирались племена. По степи разбросаны курганы легендарных ханов. Казахи называют Улытау духовным центром нации. Место глубочайшего национального смысла.",
+        etiquette: [
+          "Относитесь к месту с тем почтением, что чувствуют казахи к своей родовой земле",
+          "Мавзолей хана Алаши — действующее сакральное место; одевайтесь скромно",
+          "Не уносите камни и «сувениры» с курганных насыпей",
+          "Если встретите местных пастухов или паломников — примите предложенный чай: отказ невежлив"
+        ]
+      },
+      {
+        name: "Карагандинские горные святилища Каркаралы",
+        nameKz: "Қарқаралы тау ғибадатханалары",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "XVIII–XIX вв.",
+        location: "Каркаралы, Карагандинская обл.",
+        desc: "Сеть святилищ святых (ауле) и священных источников в гранитных горах Центрального Казахстана. Местные традиции целительства и суфийские практики вплетены в ландшафт — к источникам приходят ради их предполагаемых лечебных свойств.",
+        etiquette: [
+          "В районе священных источников не заходите в воду в обуви — местный обычай",
+          "Оставьте символическое подношение (монету, ткань) или просто наблюдайте"
+        ]
+      },
+      {
+        name: "Древние медные рудники Джезказгана",
+        nameKz: "Жезқазған мыс кені",
+        type: "historical",
+        typeLabel: "Историческое",
+        era: "II тысячелетие до н. э.",
+        location: "Жезказган, Карагандинская обл.",
+        desc: "Один из крупнейших в мире древних медедобывающих комплексов — здесь народы бронзового века добыли более 100 000 тонн меди. Рудники проходят под современным городом. Региональный музей хранит выдающиеся находки бронзового века.",
+        etiquette: [
+          "Музей Жезказгана требует предварительной записи для групп",
+          "Действующие промышленные зоны города закрыты для посещения"
+        ]
+      }
+    ]
+  },
+  {
+    region: "Северный Казахстан",
+    regionSub: "Солтүстік Қазақстан",
+    items: [
+      {
+        name: "Озёра Иманотау и Шалкар",
+        nameKz: "Иманотау-Шалқар көлдері",
+        type: "natural",
+        typeLabel: "Природное",
+        era: "Природный объект",
+        location: "Северо-Казахстанская обл.",
+        desc: "Цепь степных озёр, считающихся священными в казахской традиции. Вода Иманотау, богатая минералами, по поверью, исцеляет недуги. Во время миграций озёра привлекают стаи фламинго, пеликанов и аистов.",
+        etiquette: [
+          "Около священных источников не заходите в воду в обуви — местный обычай",
+          "Не используйте моторные суда — это мешает гнездящимся птицам"
+        ]
+      },
+      {
+        name: "Петроглифы Акмолинской области",
+        nameKz: "Ақмола петроглифтері",
+        type: "petroglyphs",
+        typeLabel: "Петроглифы",
+        era: "Бронзовый век",
+        location: "Район Бурабай, Акмолинская обл.",
+        desc: "Памятники наскального искусства в озёрном крае Бурабай (Боровое), которые обычно остаются в тени знаменитых пейзажей. На гранитных обнажениях у воды вырезаны олени, бизоны и антропоморфные фигуры бронзового века.",
+        etiquette: [
+          "В популярном курортном Бурабае много неофициальных гидов — ищите официальных",
+          "Не прикасайтесь к рисункам"
+        ]
+      }
+    ]
+  },
+  {
+    region: "Астана и окрестности",
+    regionSub: "Астана және маңайы",
+    items: [
+      {
+        name: "Мечеть Хазрет Султан",
+        nameKz: "Қазрет Сұлтан мешіті",
+        type: "sacred",
+        typeLabel: "Сакральное",
+        era: "2012 год",
+        location: "Астана",
+        desc: "Крупнейшая мечеть Центральной Азии — вмещает 10 000 верующих. Названа в честь Ходжи Ахмеда Яссауи. Четыре 77-метровых минарета доминируют в силуэте Астаны. Несмотря на современность, это действующее и глубоко значимое место поклонения.",
+        etiquette: [
+          "Строгая скромная одежда — шорты, майки и открытые ноги недопустимы",
+          "Женщинам необходим хиджаб; платки есть у входа",
+          "Не посещайте в пятничный намаз (Джума) как турист",
+          "Фотосъёмка внутри разрешена только в специальных зонах",
+          "Мечеть разделена на мужскую и женскую половины"
+        ]
+      },
+      {
+        name: "Музей первого президента",
+        nameKz: "Тұңғыш президент мұражайы",
+        type: "architectural",
+        typeLabel: "Архитектура",
+        era: "После 1991 года",
+        location: "Астана",
+        desc: "Расположен в бывшей президентской резиденции. Документирует строительство казахстанского государства после советского периода. Личные артефакты, дары мировых лидеров и церемониальные залы дают уникальное представление о рождении нового государства.",
+        etiquette: [
+          "Деловой повседневный стиль уместен — пляжная одежда неприемлема",
+          "Правила съёмки различаются по залам — следите за табличками",
+          "Англоязычные экскурсии доступны — бронируйте заранее"
+        ]
+      }
+    ]
+  },
+  {
+    region: "Западный Казахстан",
+    regionSub: "Батыс Қазақстан",
+    items: [
+      {
+        name: "Древняя столица Сарайшык",
+        nameKz: "Сарайшық қаласының орны",
+        type: "historical",
+        typeLabel: "Историческое",
+        era: "XIII–XVI вв.",
+        location: "Близ Атырау, Атырауская обл.",
+        desc: "Бывшая столица Золотой Орды на берегу реки Урал. Здесь похоронены восемь казахских ханов Казахского ханства — это самое священное место погребения казахской правящей династии. Мавзолей отмечает их захоронения.",
+        etiquette: [
+          "Ханские мавзолеи глубоко священны — приближайтесь с почтением",
+          "Не ходите по насыпям и не тревожьте землю у могил",
+          "Громкое поведение неуважительно",
+          "Берег реки разрушается — держитесь безопасных дорожек"
+        ]
+      },
+      {
+        name: "Каравансараи плато Устюрт",
+        nameKz: "Үстірт керуенсарайлары",
+        type: "historical",
+        typeLabel: "Историческое",
+        era: "VIII–XII вв.",
+        location: "Плато Устюрт, Мангыстауская / Актюбинская обл.",
+        desc: "Руины цепи каравансараев, обслуживавших древний маршрут Шёлкового пути через плато Устюрт — одну из суровейших природных сред в мире. Изоляция и пустынность лишь усиливают осознание подвига средневековых купцов, пересекавших эту пустоту.",
+        etiquette: [
+          "Отдалённая пустыня — требуется полностью автономная экспедиция",
+          "Руины из сырцового кирпича хрупкие — не взбирайтесь и не облокачивайтесь",
+          "Перед выходом на плато зарегистрируйтесь у местных властей"
+        ]
+      }
+    ]
+  }
+];
+
+function buildCards() {
+  const container = document.getElementById('gems-container');
+  let total = 0;
+  GEMS.forEach(region => {
+    total += region.items.length;
+    const sec = document.createElement('div');
+    sec.className = 'region';
+    sec.dataset.region = region.region;
+    sec.innerHTML = `
+      <div class="region-header">
+        <span class="region-name">${region.region}</span>
+        <span class="region-sub">${region.regionSub}</span>
+        <span class="region-count">${region.items.length} мест</span>
+      </div>
+      <div class="gems-grid" id="grid-${region.region.replace(/\s/g,'_')}"></div>
+    `;
+    const grid = sec.querySelector('.gems-grid');
+    region.items.forEach(gem => {
+      const card = document.createElement('div');
+      card.className = `gem-card${gem.type === 'sacred' ? ' gem-card--sacred' : ''}`;
+      card.dataset.type = gem.type;
+      card.dataset.name = gem.name.toLowerCase();
+      card.dataset.region = region.region.toLowerCase();
+      card.innerHTML = `
+        <div class="card-top">
+          <span class="card-type type-${gem.type}">${gem.typeLabel}</span>
+          <span class="card-era">${gem.era}</span>
+        </div>
+        <div class="card-name">${gem.name}</div>
+        <div class="card-name-kz">${gem.nameKz}</div>
+        <div class="card-desc">${gem.desc}</div>
+        <div class="card-footer">
+          <div class="card-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ${gem.location}
+          </div>
+          <span class="tap-hint">Нажмите для этикета</span>
+        </div>
+        <div class="etiq-panel">
+          <div class="etiq-title">// Культурный этикет</div>
+          <ul class="etiq-list">${gem.etiquette.map(e=>`<li>${e}</li>`).join('')}</ul>
+        </div>
+      `;
+      card.addEventListener('click', () => {
+        const was = card.classList.contains('expanded');
+        document.querySelectorAll('.gem-card.expanded').forEach(c => c.classList.remove('expanded'));
+        if (!was) card.classList.add('expanded');
+      });
+      grid.appendChild(card);
+    });
+    container.appendChild(sec);
+  });
+  document.getElementById('total-count').textContent = `// ${total} мест`;
+  document.getElementById('s-total').innerHTML = `${total}<span>+</span>`;
+}
+
+function applyFilter(type) {
+  document.querySelectorAll('.gem-card').forEach(c => {
+    c.style.display = (type === 'all' || c.dataset.type === type) ? '' : 'none';
+  });
+  document.querySelectorAll('.region').forEach(r => {
+    const grid = r.querySelector('.gems-grid');
+    const vis = grid ? Array.from(grid.querySelectorAll('.gem-card')).filter(c => c.style.display !== 'none') : [];
+    r.style.display = vis.length > 0 ? '' : 'none';
+  });
+}
+
+document.getElementById('search-input').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  const active = document.querySelector('.filter-btn.active').dataset.filter;
+  let vis = 0;
+  document.querySelectorAll('.gem-card').forEach(c => {
+    const mt = active === 'all' || c.dataset.type === active;
+    const ms = !q || c.dataset.name.includes(q) || c.dataset.region.includes(q) || c.dataset.type.includes(q);
+    c.style.display = (mt && ms) ? '' : 'none';
+    if (mt && ms) vis++;
+  });
+  document.querySelectorAll('.region').forEach(r => {
+    const grid = r.querySelector('.gems-grid');
+    const v = grid ? Array.from(grid.querySelectorAll('.gem-card')).filter(c => c.style.display !== 'none') : [];
+    r.style.display = v.length > 0 ? '' : 'none';
+  });
+  document.getElementById('empty-state').classList.toggle('visible', vis === 0);
+});
+
+document.getElementById('filter-bar').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilter(btn.dataset.filter);
+  document.getElementById('search-input').value = '';
+  document.getElementById('empty-state').classList.remove('visible');
+});
+
+buildCards();
+</script>
+</body>
+</html>

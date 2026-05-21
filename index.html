@@ -1,48 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UrbanGuide — City Intelligence Platform</title>
+  <title>UrbanGuide — Умный путеводитель по Алматы</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Map grid overlay -->
   <div class="map-grid"></div>
-  <!-- Glow orbs -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
 
-  <!-- Nav -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="index.html" class="nav-logo">
         <div class="nav-logo-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="3 11 22 2 13 21 11 13 3 11"/>
           </svg>
         </div>
         Urban<strong>Guide</strong>
       </a>
       <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#districts">Districts</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#" class="nav-cta">Explore City →</a></li>
+        <li><a href="hidden-gems.html" class="nav-cta">🗺 Сакральные места →</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="wrapper">
-
       <div class="hero-coords">
-        <span class="coord-item">43.2220° N</span>
+        <span class="coord-item">43.2220° с.ш.</span>
         <span class="coord-sep">·</span>
-        <span class="coord-item">76.8512° E</span>
+        <span class="coord-item">76.8512° в.д.</span>
         <span class="coord-sep">·</span>
         <span class="coord-live">
           <span class="live-dot"></span>
@@ -50,186 +41,97 @@
         </span>
       </div>
 
-      <h1>Know your city.<br><em>Before you arrive.</em></h1>
+      <h1>Познайте город.<br><em>До приезда.</em></h1>
 
       <p class="hero-sub">
-        Real-time transport, hidden districts, local events, infrastructure maps,
-        and insider tips — your AI urban companion for any city in the world.
+        Транспорт в реальном времени, скрытые районы, местные события, исторические места
+        и советы инсайдеров — ваш AI-компаньон по Алматы и Казахстану.
       </p>
 
       <div class="hero-actions">
-        <a href="#" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-          Ask the City
+        <a href="hidden-gems.html" class="btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Исследовать сакральные места
         </a>
-        <a href="#features" class="btn-ghost">
-          View map layers →
-        </a>
+        <a href="#features" class="btn-ghost">Возможности платформы →</a>
       </div>
 
-      <!-- Inline city stats ticker -->
       <div class="ticker-wrap">
         <div class="ticker-track">
-          <span>🚇 Metro Line A — On time</span>
-          <span>🌡 +24°C · Partly cloudy</span>
-          <span>🎭 Jazz Festival · Park Kok · Fri–Sun</span>
-          <span>🚧 Road works · Abay Ave · until Jun 3</span>
-          <span>🏛 Kazakh Museum · Open 10:00–18:00</span>
-          <span>🚲 City Bikes · 340 stations active</span>
-          <span>🚇 Metro Line A — On time</span>
-          <span>🌡 +24°C · Partly cloudy</span>
-          <span>🎭 Jazz Festival · Park Kok · Fri–Sun</span>
-          <span>🚧 Road works · Abay Ave · until Jun 3</span>
+          <span>🚇 Линия метро А — По расписанию</span>
+          <span>🌡 +24°C · Переменная облачность</span>
+          <span>🎭 Джаз-фестиваль · Парк Кок-Тобе · Пт–Вс</span>
+          <span>🚧 Дорожные работы · пр. Абая · до 3 июня</span>
+          <span>🏛 Казахский музей · Открыт 10:00–18:00</span>
+          <span>🕌 Центральная мечеть · Открыта для посетителей</span>
+          <span>🚇 Линия метро А — По расписанию</span>
+          <span>🌡 +24°C · Переменная облачность</span>
+          <span>🎭 Джаз-фестиваль · Парк Кок-Тобе · Пт–Вс</span>
+          <span>🚧 Дорожные работы · пр. Абая · до 3 июня</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats -->
-  <div class="wrapper">
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">200<span>+</span></div>
-        <div class="stat-label">Cities covered</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">24<span>/7</span></div>
-        <div class="stat-label">Live updates</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">50<span>+</span></div>
-        <div class="stat-label">Languages</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">0<span>s</span></div>
-        <div class="stat-label">Wait time</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Features -->
   <section class="section" id="features">
     <div class="wrapper">
-      <div class="section-tag">// PLATFORM MODULES</div>
-      <h2 class="section-title">Every layer<br>of the city.</h2>
-      <p class="section-sub">From metro schedules to hidden courtyards — UrbanGuide maps what matters.</p>
+      <div class="section-tag">// МОДУЛИ ПЛАТФОРМЫ</div>
+      <h2 class="section-title">Каждый слой<br>города.</h2>
+      <p class="section-sub">От расписания метро до скрытых двориков — UrbanGuide картографирует всё важное.</p>
 
       <div class="features-grid">
         <div class="feature-card feature-card--wide">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <div class="feature-title">Live Transport Tracker</div>
-          <div class="feature-desc">Metro, buses, trams, shared bikes — departure times, delays, capacity, and alternate routes. Updated every 30 seconds.</div>
-          <div class="feature-tag">REAL-TIME</div>
+          <div class="feature-title">Транспорт в реальном времени</div>
+          <div class="feature-desc">Метро, автобусы, трамваи, велошеринг — время отправления, задержки, загруженность и альтернативные маршруты. Обновление каждые 30 секунд.</div>
+          <div class="feature-tag">В РЕАЛЬНОМ ВРЕМЕНИ</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <div class="feature-title">District Intelligence</div>
-          <div class="feature-desc">Neighbourhood character, safety scores, noise levels, walkability, local gems the tourist guides miss.</div>
+          <div class="feature-title">Скрытые сокровища</div>
+          <div class="feature-desc">Сакральные места, петроглифы, исторические мечети и соборы — культурная глубина, которую не найти в туристических путеводителях.</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <div class="feature-title">Infrastructure Map</div>
-          <div class="feature-desc">Road works, utility outages, construction zones, and planned disruptions visualised on an interactive overlay.</div>
+          <div class="feature-title">Местные события</div>
+          <div class="feature-desc">Концерты, базары, культурные фестивали и бесплатные городские мероприятия — отфильтрованные по вашим интересам.</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
-          <div class="feature-title">Local Events</div>
-          <div class="feature-desc">Concerts, markets, cultural festivals, sporting events, and free city happenings — filtered by your interests and location.</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div class="feature-title">Accommodation Guide</div>
-          <div class="feature-desc">Hotels, hostels, and apartments ranked by proximity to transit, walkability score, and authentic neighbourhood feel.</div>
+          <div class="feature-title">Карта инфраструктуры</div>
+          <div class="feature-desc">Дорожные работы, аварийные отключения, строительные зоны и плановые перекрытия на интерактивном слое карты.</div>
         </div>
         <div class="feature-card feature-card--wide">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <div class="feature-title">Traveller Safety & Tips</div>
-          <div class="feature-desc">Emergency contacts, safe zones, scam alerts, cultural etiquette, and what NOT to do — honest, local-sourced intelligence for every destination.</div>
-          <div class="feature-tag">AI-POWERED</div>
+          <div class="feature-title">Культурный этикет и безопасность</div>
+          <div class="feature-desc">Правила дресс-кода, нормы фотосъёмки, как общаться с местными у сакральных мест, предупреждения о мошенниках — честная, проверенная информация.</div>
+          <div class="feature-tag">НА ОСНОВЕ AI</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- District strip -->
-  <section class="districts-section" id="districts">
-    <div class="wrapper">
-      <div class="section-tag">// POPULAR DISTRICTS</div>
-      <h2 class="section-title">Explore by<br>neighbourhood.</h2>
-    </div>
-    <div class="districts-scroll">
-      <div class="district-card">
-        <div class="district-label">OLD TOWN</div>
-        <div class="district-name">Historic Core</div>
-        <div class="district-meta">🏛 Heritage · 🚶 Walkable</div>
-      </div>
-      <div class="district-card">
-        <div class="district-label">ALMATY</div>
-        <div class="district-name">Medeu Heights</div>
-        <div class="district-meta">⛷ Sports · 🌲 Nature</div>
-      </div>
-      <div class="district-card">
-        <div class="district-label">CENTRAL</div>
-        <div class="district-name">Arbat Quarter</div>
-        <div class="district-meta">🎭 Arts · 🍽 Food</div>
-      </div>
-      <div class="district-card">
-        <div class="district-label">EAST</div>
-        <div class="district-name">Tech District</div>
-        <div class="district-meta">💡 Innovation · ☕ Cafés</div>
-      </div>
-      <div class="district-card">
-        <div class="district-label">RIVERSIDE</div>
-        <div class="district-name">Port Quarter</div>
-        <div class="district-meta">⚓ Maritime · 🌅 Views</div>
-      </div>
-      <div class="district-card">
-        <div class="district-label">NORTH</div>
-        <div class="district-name">Industrial Arts</div>
-        <div class="district-meta">🎨 Galleries · 🏗 Urban</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Disclaimer -->
-  <div class="wrapper" id="about">
-    <div class="disclaimer">
-      <div class="disclaimer-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      </div>
-      <p>
-        <strong>Data Notice:</strong> UrbanGuide provides general city and travel information for planning purposes only.
-        Transport times, event schedules, and infrastructure data may change without notice.
-        Always verify critical information with official local sources before travel.
-        Emergency services: call your local emergency number immediately in case of danger.
-      </p>
-    </div>
-  </div>
-
-  <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">
         Urban<strong>Guide</strong>
-        <span class="footer-tagline">City Intelligence Platform</span>
+        <span class="footer-tagline">Городская платформа · Алматы</span>
       </div>
-      <div class="footer-copy">© 2026 UrbanGuide. For informational purposes only.</div>
+      <div class="footer-copy">© 2026 UrbanGuide. Только в информационных целях.</div>
       <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Contact</a>
+        <a href="#">Конфиденциальность</a>
+        <a href="#">Условия</a>
+        <a href="#">Контакты</a>
       </div>
     </div>
   </footer>
