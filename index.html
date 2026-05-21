@@ -1,29 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MediAssist — AI Medical Information</title>
+  <title>UrbanGuide — City Intelligence Platform</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Ambient blobs -->
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
+  <!-- Map grid overlay -->
+  <div class="map-grid"></div>
+  <!-- Glow orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
 
   <!-- Nav -->
   <nav>
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <div class="nav-logo-icon">⚕</div>
-        MediAssist
+        <div class="nav-logo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+          </svg>
+        </div>
+        Urban<strong>Guide</strong>
       </a>
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
+        <li><a href="#districts">Districts</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#" class="nav-cta">Ask AI →</a></li>
+        <li><a href="#" class="nav-cta">Explore City →</a></li>
       </ul>
     </div>
   </nav>
@@ -31,25 +38,49 @@
   <!-- Hero -->
   <section class="hero">
     <div class="wrapper">
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        AI-Powered Medical Assistant
+
+      <div class="hero-coords">
+        <span class="coord-item">43.2220° N</span>
+        <span class="coord-sep">·</span>
+        <span class="coord-item">76.8512° E</span>
+        <span class="coord-sep">·</span>
+        <span class="coord-live">
+          <span class="live-dot"></span>
+          LIVE
+        </span>
       </div>
 
-      <h1>Your health,<br><em>understood.</em></h1>
+      <h1>Know your city.<br><em>Before you arrive.</em></h1>
 
       <p class="hero-sub">
-        Ask questions about symptoms, medications, treatments, and wellness —
-        in any language. Instant, clear, reliable information.
+        Real-time transport, hidden districts, local events, infrastructure maps,
+        and insider tips — your AI urban companion for any city in the world.
       </p>
 
       <div class="hero-actions">
         <a href="#" class="btn-primary">
-          💬 &nbsp;Ask a Question
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Ask the City
         </a>
         <a href="#features" class="btn-ghost">
-          Learn more →
+          View map layers →
         </a>
+      </div>
+
+      <!-- Inline city stats ticker -->
+      <div class="ticker-wrap">
+        <div class="ticker-track">
+          <span>🚇 Metro Line A — On time</span>
+          <span>🌡 +24°C · Partly cloudy</span>
+          <span>🎭 Jazz Festival · Park Kok · Fri–Sun</span>
+          <span>🚧 Road works · Abay Ave · until Jun 3</span>
+          <span>🏛 Kazakh Museum · Open 10:00–18:00</span>
+          <span>🚲 City Bikes · 340 stations active</span>
+          <span>🚇 Metro Line A — On time</span>
+          <span>🌡 +24°C · Partly cloudy</span>
+          <span>🎭 Jazz Festival · Park Kok · Fri–Sun</span>
+          <span>🚧 Road works · Abay Ave · until Jun 3</span>
+        </div>
       </div>
     </div>
   </section>
@@ -58,16 +89,16 @@
   <div class="wrapper">
     <div class="stats">
       <div class="stat">
-        <div class="stat-num">50<span>+</span></div>
-        <div class="stat-label">Languages</div>
+        <div class="stat-num">200<span>+</span></div>
+        <div class="stat-label">Cities covered</div>
       </div>
       <div class="stat">
         <div class="stat-num">24<span>/7</span></div>
-        <div class="stat-label">Available</div>
+        <div class="stat-label">Live updates</div>
       </div>
       <div class="stat">
-        <div class="stat-num">1M<span>+</span></div>
-        <div class="stat-label">Topics covered</div>
+        <div class="stat-num">50<span>+</span></div>
+        <div class="stat-label">Languages</div>
       </div>
       <div class="stat">
         <div class="stat-num">0<span>s</span></div>
@@ -79,41 +110,95 @@
   <!-- Features -->
   <section class="section" id="features">
     <div class="wrapper">
-      <div class="section-tag">What we offer</div>
-      <h2 class="section-title">Medical knowledge,<br>at your fingertips.</h2>
-      <p class="section-sub">From basic questions to complex conditions — MediAssist covers it all clearly and honestly.</p>
+      <div class="section-tag">// PLATFORM MODULES</div>
+      <h2 class="section-title">Every layer<br>of the city.</h2>
+      <p class="section-sub">From metro schedules to hidden courtyards — UrbanGuide maps what matters.</p>
 
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🩺</div>
-          <div class="feature-title">Symptom Guidance</div>
-          <div class="feature-desc">Describe what you're feeling and get clear, structured information about possible causes and next steps.</div>
+        <div class="feature-card feature-card--wide">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="feature-title">Live Transport Tracker</div>
+          <div class="feature-desc">Metro, buses, trams, shared bikes — departure times, delays, capacity, and alternate routes. Updated every 30 seconds.</div>
+          <div class="feature-tag">REAL-TIME</div>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">💊</div>
-          <div class="feature-title">Medication Info</div>
-          <div class="feature-desc">Understand dosages, interactions, side effects, and alternatives for thousands of medications.</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="feature-title">District Intelligence</div>
+          <div class="feature-desc">Neighbourhood character, safety scores, noise levels, walkability, local gems the tourist guides miss.</div>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🧠</div>
-          <div class="feature-title">Mental Health</div>
-          <div class="feature-desc">Resources and information on anxiety, depression, stress, sleep, and emotional wellbeing.</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="feature-title">Infrastructure Map</div>
+          <div class="feature-desc">Road works, utility outages, construction zones, and planned disruptions visualised on an interactive overlay.</div>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🌍</div>
-          <div class="feature-title">Any Language</div>
-          <div class="feature-desc">Ask in Russian, Kazakh, Spanish, Arabic — MediAssist detects your language and responds in kind.</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="feature-title">Local Events</div>
+          <div class="feature-desc">Concerts, markets, cultural festivals, sporting events, and free city happenings — filtered by your interests and location.</div>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🔬</div>
-          <div class="feature-title">Lab Results</div>
-          <div class="feature-desc">Confused by your blood work? Get plain-language explanations of common lab values and what they mean.</div>
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="feature-title">Accommodation Guide</div>
+          <div class="feature-desc">Hotels, hostels, and apartments ranked by proximity to transit, walkability score, and authentic neighbourhood feel.</div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🥗</div>
-          <div class="feature-title">Nutrition & Wellness</div>
-          <div class="feature-desc">Evidence-based guidance on diet, exercise, hydration, and preventive health habits.</div>
+        <div class="feature-card feature-card--wide">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="feature-title">Traveller Safety & Tips</div>
+          <div class="feature-desc">Emergency contacts, safe zones, scam alerts, cultural etiquette, and what NOT to do — honest, local-sourced intelligence for every destination.</div>
+          <div class="feature-tag">AI-POWERED</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- District strip -->
+  <section class="districts-section" id="districts">
+    <div class="wrapper">
+      <div class="section-tag">// POPULAR DISTRICTS</div>
+      <h2 class="section-title">Explore by<br>neighbourhood.</h2>
+    </div>
+    <div class="districts-scroll">
+      <div class="district-card">
+        <div class="district-label">OLD TOWN</div>
+        <div class="district-name">Historic Core</div>
+        <div class="district-meta">🏛 Heritage · 🚶 Walkable</div>
+      </div>
+      <div class="district-card">
+        <div class="district-label">ALMATY</div>
+        <div class="district-name">Medeu Heights</div>
+        <div class="district-meta">⛷ Sports · 🌲 Nature</div>
+      </div>
+      <div class="district-card">
+        <div class="district-label">CENTRAL</div>
+        <div class="district-name">Arbat Quarter</div>
+        <div class="district-meta">🎭 Arts · 🍽 Food</div>
+      </div>
+      <div class="district-card">
+        <div class="district-label">EAST</div>
+        <div class="district-name">Tech District</div>
+        <div class="district-meta">💡 Innovation · ☕ Cafés</div>
+      </div>
+      <div class="district-card">
+        <div class="district-label">RIVERSIDE</div>
+        <div class="district-name">Port Quarter</div>
+        <div class="district-meta">⚓ Maritime · 🌅 Views</div>
+      </div>
+      <div class="district-card">
+        <div class="district-label">NORTH</div>
+        <div class="district-name">Industrial Arts</div>
+        <div class="district-meta">🎨 Galleries · 🏗 Urban</div>
       </div>
     </div>
   </section>
@@ -121,12 +206,14 @@
   <!-- Disclaimer -->
   <div class="wrapper" id="about">
     <div class="disclaimer">
-      <div class="disclaimer-icon">⚠️</div>
+      <div class="disclaimer-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
       <p>
-        <strong>Medical Disclaimer:</strong> MediAssist provides general health information for educational purposes only.
-        It is not a substitute for professional medical advice, diagnosis, or treatment.
-        Always consult a qualified healthcare provider for personal medical decisions.
-        In case of emergency, call your local emergency services immediately.
+        <strong>Data Notice:</strong> UrbanGuide provides general city and travel information for planning purposes only.
+        Transport times, event schedules, and infrastructure data may change without notice.
+        Always verify critical information with official local sources before travel.
+        Emergency services: call your local emergency number immediately in case of danger.
       </p>
     </div>
   </div>
@@ -134,7 +221,11 @@
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-copy">© 2026 MediAssist. For informational purposes only.</div>
+      <div class="footer-logo">
+        Urban<strong>Guide</strong>
+        <span class="footer-tagline">City Intelligence Platform</span>
+      </div>
+      <div class="footer-copy">© 2026 UrbanGuide. For informational purposes only.</div>
       <div class="footer-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
@@ -143,8 +234,6 @@
     </div>
   </footer>
 
-  <!-- Chatbot -->
   <script src="chatbot.js" defer></script>
-
 </body>
 </html>
